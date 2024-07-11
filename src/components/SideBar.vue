@@ -1,12 +1,12 @@
 <template>
-  <!-- Sidebar section -->
+  <!-- Sidebar -->
   <aside
-    class="fixed h-screen w-[15%] pt-5 pl-10 border-2 border-white text-white"
+    class="fixed h-screen w-[18vw] pt-5 pl-12 border-[1px] border-[lightgray] text-white"
   >
     <!-- Logo -->
     <img class="w-12 ml-[-10px] mb-2" src="../assets/logo.png" alt="Logo" />
     <!-- List (unordered) of icons and corresponding texts in the sidebar -->
-    <ul>
+    <ul class="links">
       <li>
         <img
           class="w-6 h-6 mr-2"
@@ -84,10 +84,15 @@
 </template>
 
 <style>
-li {
+.links li {
   display: flex;
   align-items: center;
   padding: 12px 0;
+  cursor: pointer;
+}
+
+.links li:hover {
+  color: #60a0ff;
 }
 </style>
 
