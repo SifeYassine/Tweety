@@ -1,89 +1,148 @@
 {
   "Users": [
     {
-      "id": 1,
+      "id": "1",
       "user_name": "Sife1",
       "name": "Sife Yassine",
-      "avatar_url": "/assets/Profile.png"
+      "avatar_url": "assets/Profile.png"
     },
     {
-      "id": 2,
+      "id": "2",
       "user_name": "Omar2",
       "name": "Omar Zekri",
-      "avatar_url": "/assets/Profile.png"
+      "avatar_url": "assets/Profile.png"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Reda Mazria",
       "user_name": "Reda3",
-      "avatar_url": "/assets/Profile.png"
+      "avatar_url": "assets/Profile.png"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Zakaria Benmoussa",
       "user_name": "Zakaria4",
-      "avatar_url": "/assets/Profile.png"
+      "avatar_url": "assets/Profile.png"
     }
   ],
   "Posts": [
     {
-      "id": 1,
+      "id": "1",
       "content": "This is post 1",
-      "image_url": "/assets/Profile.png",
+      "image_url": null,
       "liked": false,
       "likes_count": 0,
+      "comments_count": 0,
       "created_at": "2022-03-20T00:00:00.000Z",
-      "user_id": 1
+      "user_id": 1,
+      "user": {
+        "id": "1",
+        "user_name": "Sife1",
+        "name": "Sife Yassine",
+        "avatar_url": "assets/Profile.png"
+      }
     },
     {
-      "id": 2,
-      "content": "This is post 2",
-      "image_url": "/assets/Profile.png",
-      "liked": false,
-      "likes_count": 0,
+      "id": "2",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "image_url": "assets/pic.png",
+      "liked": true,
+      "likes_count": 1,
+      "comments_count": 22,
       "created_at": "2022-03-20T00:00:00.000Z",
-      "user_id": 2
+      "user_id": 2,
+      "user": {
+        "id": "2",
+        "user_name": "Omar2",
+        "name": "Omar Zekri",
+        "avatar_url": "assets/Profile.png"
+      }
     },
     {
-      "id": 3,
+      "id": "3",
       "content": "This is post 3",
-      "image_url": "/assets/Profile.png",
+      "image_url": "assets/logo.png",
       "liked": false,
       "likes_count": 0,
+      "comments_count": 14,
       "created_at": "2022-03-20T00:00:00.000Z",
-      "user_id": 3
+      "user_id": 3,
+      "user": {
+        "id": "3",
+        "name": "Reda Mazria",
+        "user_name": "Reda3",
+        "avatar_url": "assets/Profile.png"
+      }
     },
     {
-      "id": 4,
+      "id": "4",
       "content": "This is post 4",
-      "image_url": "/assets/Profile.png",
+      "image_url": "assets/Profile.png",
+      "liked": true,
+      "likes_count": 1,
+      "comments_count": 5,
+      "created_at": "2022-03-20T00:00:00.000Z",
+      "user_id": 4,
+      "user": {
+        "id": "4",
+        "name": "Zakaria Benmoussa",
+        "user_name": "Zakaria4",
+        "avatar_url": "assets/Profile.png"
+      }
+    },
+    {
+      "id": "5",
+      "content": "Hello World",
       "liked": false,
       "likes_count": 0,
-      "created_at": "2022-03-20T00:00:00.000Z",
-      "user_id": 4
+      "comments_count": 0,
+      "created_at": "2024-07-12T18:21:34.480Z",
+      "user_id": "1",
+      "image_url": null,
+      "user": {
+        "id": "1",
+        "user_name": "Sife1",
+        "name": "Sife Yassine",
+        "avatar_url": "assets/Profile.png"
+      }
+    },
+    {
+      "id": "6",
+      "content": "hello devs",
+      "liked": false,
+      "likes_count": 0,
+      "comments_count": 0,
+      "created_at": "2024-07-14T17:18:51.473Z",
+      "user_id": "1",
+      "user": {
+        "id": "1",
+        "user_name": "Sife1",
+        "name": "Sife Yassine",
+        "avatar_url": "assets/Profile.png"
+      }
     }
   ],
   "Trends": [
     {
-      "id": 1,
+      "id": "1",
       "hashtag": "Trend 1",
       "location": "Morocco",
-      "Tweets_count": 20000
+      "Tweets_count": 25340
     },
     {
-      "id": 2,
+      "id": "2",
       "hashtag": "Trend 2",
       "location": "USA",
       "Tweets_count": 3000000
     },
     {
-      "id": 3,
+      "id": "3",
       "hashtag": "Trend 3",
       "location": "Worldwide",
       "Tweets_count": 10000000
     },
     {
-      "id": 4,
+      "id": "4",
       "hashtag": "Trend 4",
       "location": "Ukraine",
       "Tweets_count": 5000000

@@ -1,8 +1,6 @@
 <template>
   <!-- Sidebar -->
-  <aside
-    class="fixed h-screen w-[18vw] pt-5 pl-12 border-[1px] border-[lightgray] text-white"
-  >
+  <aside class="fixed h-screen w-[20vw] pt-5 pl-16 text-white">
     <!-- Logo -->
     <img class="w-12 ml-[-10px] mb-2" src="../assets/logo.png" alt="Logo" />
     <!-- List (unordered) of icons and corresponding texts in the sidebar -->
