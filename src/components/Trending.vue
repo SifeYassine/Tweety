@@ -5,40 +5,10 @@
       <li>
         <h1 class="text-xl font-bold">Trending for you</h1>
       </li>
-      <li>
-        <p>Trending in Worldwide</p>
-        <h3>USA Elections</h3>
-        <p>11.4k Tweets</p>
-      </li>
-
-      <li>
-        <p>Trending in Worldwide</p>
-        <h3>Coronavirus</h3>
-        <p>8.2M Tweets</p>
-      </li>
-
-      <li>
-        <p>Trending in Morocco</p>
-        <h3>Drought in Morocco</h3>
-        <p>1.2k Tweets</p>
-      </li>
-
-      <li>
-        <p>Trending in USA</p>
-        <h3>Coronavirus</h3>
-        <p>8.2M Tweets</p>
-      </li>
-
-      <li>
-        <p>Trending in Morocco</p>
-        <h3>Drought in Morocco</h3>
-        <p>1.2k Tweets</p>
-      </li>
-
-      <li>
-        <p>Trending in USA</p>
-        <h3>Coronavirus</h3>
-        <p>8.2M Tweets</p>
+      <li v-for="trend in trends" :key="trend.id">
+        <p>Trending in {{ trend.location }}</p>
+        <h3>{{ trend.hashtag }}</h3>
+        <p>{{ formatNumber(trend.Tweets_count) }} Tweets</p>
       </li>
     </ul>
   </aside>
@@ -65,7 +35,40 @@
 </style>
 
 <script>
+import { ref, onMounted } from "vue";
+import axios from "axios";
+
 export default {
   name: "TrendingBar",
+  setup() {
+    const trends = ref([]);
+
+    async function fetchTrends() {
+      try {
+        const response = await axios.get("http://localhost:3000/Trends");
+        trends.value = response.data;
+      } catch (error) {
+        console.error("Error fetching trends:", error);
+      }
+    }
+
+    function formatNumber(number) {
+      if (number >= 1000000000) {
+        return (number / 1000000000).toFixed(1) + "B";
+      } else if (number >= 1000000) {
+        return (number / 1000000).toFixed(1) + "M";
+      } else if (number >= 1000) {
+        return (number / 1000).toFixed(1) + "K";
+      }
+      return number;
+    }
+
+    onMounted(fetchTrends);
+
+    return {
+      trends,
+      formatNumber,
+    };
+  },
 };
 </script>
