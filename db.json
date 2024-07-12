@@ -32,7 +32,7 @@
       "image_url": null,
       "liked": false,
       "likes_count": 0,
-      "comments_count": 0,
+      "comments_count": 2,
       "created_at": "2022-03-20T00:00:00.000Z",
       "user_id": 1,
       "user": {
@@ -48,7 +48,7 @@
       "image_url": "assets/pic.png",
       "liked": true,
       "likes_count": 1,
-      "comments_count": 22,
+      "comments_count": 2,
       "created_at": "2022-03-20T00:00:00.000Z",
       "user_id": 2,
       "user": {
@@ -62,9 +62,9 @@
       "id": "3",
       "content": "This is post 3",
       "image_url": "assets/logo.png",
-      "liked": false,
-      "likes_count": 0,
-      "comments_count": 14,
+      "liked": true,
+      "likes_count": 1,
+      "comments_count": 1,
       "created_at": "2022-03-20T00:00:00.000Z",
       "user_id": 3,
       "user": {
@@ -80,7 +80,7 @@
       "image_url": "assets/Profile.png",
       "liked": true,
       "likes_count": 1,
-      "comments_count": 5,
+      "comments_count": 1,
       "created_at": "2022-03-20T00:00:00.000Z",
       "user_id": 4,
       "user": {
@@ -95,7 +95,7 @@
       "content": "Hello World",
       "liked": false,
       "likes_count": 0,
-      "comments_count": 0,
+      "comments_count": 1,
       "created_at": "2024-07-12T18:21:34.480Z",
       "user_id": "1",
       "image_url": null,
@@ -119,6 +119,85 @@
         "user_name": "Sife1",
         "name": "Sife Yassine",
         "avatar_url": "assets/Profile.png"
+      }
+    }
+  ],
+  "Comments": [
+    {
+      "id": "1",
+      "comment": "Hello World",
+      "created_at": "2024-07-16T19:59:01.149Z",
+      "user_id": 1,
+      "post_id": "1",
+      "user": {
+        "id": 1,
+        "user_name": "Sife1"
+      }
+    },
+    {
+      "id": "2",
+      "comment": "Hello World",
+      "created_at": "2024-07-16T20:01:17.191Z",
+      "user_id": 1,
+      "post_id": "2",
+      "user": {
+        "id": 1,
+        "user_name": "Sife1"
+      }
+    },
+    {
+      "id": "3",
+      "comment": "Hi There",
+      "created_at": "2024-07-16T20:01:27.984Z",
+      "user_id": 1,
+      "post_id": "2",
+      "user": {
+        "id": 1,
+        "user_name": "Sife1"
+      }
+    },
+    {
+      "id": "4",
+      "comment": "Nice Image",
+      "created_at": "2024-07-16T20:01:45.954Z",
+      "user_id": 1,
+      "post_id": "4",
+      "user": {
+        "id": 1,
+        "user_name": "Sife1"
+      }
+    },
+    {
+      "id": "5",
+      "comment": "tweeter",
+      "created_at": "2024-07-16T20:12:26.564Z",
+      "user_id": "1",
+      "post_id": "3",
+      "user": {
+        "id": "1",
+        "user_name": "Sife1"
+      }
+    },
+    {
+      "id": "6",
+      "comment": "hmmm",
+      "created_at": "2024-07-16T20:18:53.107Z",
+      "user_id": "1",
+      "post_id": "1",
+      "user": {
+        "id": "1",
+        "user_name": "Sife1"
+      }
+    },
+    {
+      "id": "7",
+      "comment": "test",
+      "created_at": "2024-07-17T08:50:51.248Z",
+      "user_id": "1",
+      "post_id": "5",
+      "user": {
+        "id": "1",
+        "user_name": "Sife1"
       }
     }
   ],

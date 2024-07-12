@@ -1,7 +1,7 @@
 <template>
   <!-- Posts -->
   <ul class="posts">
-    <li v-for="post in posts" :key="post.id" class="flex gap-3">
+    <li v-for="post in filteredPosts()" :key="post.id" class="flex gap-3">
       <img
         v-if="post.user.avatar_url"
         class="w-14 h-14 rounded-full ml-3"
@@ -37,11 +37,17 @@
             />
             {{ formatNumber(post.likes_count) }}
           </p>
-          <p>
+          <p @click="toggleCommentForm(post.id)">
             <img src="../assets/icons/comments.svg" alt="" />
             {{ formatNumber(post.comments_count) }}
           </p>
         </div>
+        <CommentForm
+          v-if="activePost === post.id"
+          :postId="post.id"
+          :userId="1"
+          @commentSubmitted="updateCommentCount(post.id)"
+        />
       </div>
     </li>
   </ul>
@@ -49,7 +55,7 @@
 
 <style>
 body {
-  color: antiquewhite;
+  color: white;
 }
 
 .post-icns p {
@@ -67,11 +73,22 @@ body {
 <script>
 import { ref, onMounted } from "vue";
 import axios from "axios";
+import CommentForm from "./CommentForm.vue";
 
 export default {
   name: "PostsContainer",
-  setup() {
+  components: {
+    CommentForm,
+  },
+  props: {
+    searchQuery: {
+      type: String,
+      default: "",
+    },
+  },
+  setup(props) {
     const posts = ref([]);
+    const activePost = ref(null);
 
     async function fetchPosts() {
       try {
@@ -104,12 +121,46 @@ export default {
 
         await axios.put(`http://localhost:3000/Posts/${post.id}`, updatedPost);
 
-        const index = posts.value.findIndex((p) => p.id === post.id);
+        const index = posts.value.findIndex((post) => post.id === post.id);
         if (index !== -1) {
           posts.value[index] = { ...updatedPost, user: post.user };
         }
       } catch (error) {
         console.error("Error toggling like:", error);
+      }
+    }
+
+    async function updateCommentCount(postId) {
+      if (activePost.value === postId) {
+        activePost.value = null;
+      } else {
+        activePost.value = postId;
+      }
+
+      try {
+        const index = posts.value.findIndex((post) => post.id === postId);
+        if (index !== -1) {
+          const updatedPost = {
+            ...posts.value[index],
+            comments_count: posts.value[index].comments_count + 1,
+          };
+
+          await axios.put(`http://localhost:3000/Posts/${postId}`, updatedPost);
+          posts.value[index] = updatedPost;
+        }
+      } catch (error) {
+        console.error(
+          `Error updating comment count for post ${postId}:`,
+          error
+        );
+      }
+    }
+
+    function toggleCommentForm(postId) {
+      if (activePost.value === postId) {
+        activePost.value = null;
+      } else {
+        activePost.value = postId;
       }
     }
 
@@ -124,12 +175,27 @@ export default {
       return number;
     }
 
+    function filteredPosts() {
+      if (!props.searchQuery) {
+        return posts.value;
+      }
+      return posts.value.filter((post) =>
+        post.user.user_name
+          .toLowerCase()
+          .includes(props.searchQuery.toLowerCase())
+      );
+    }
+
     onMounted(fetchPosts);
 
     return {
       posts,
       formatNumber,
       toggleLike,
+      filteredPosts,
+      activePost,
+      toggleCommentForm,
+      updateCommentCount,
     };
   },
 };

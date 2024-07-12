@@ -4,10 +4,10 @@
     <main class="w-[51vw] ml-[20vw] border-[1px] border-[lightgray]">
       <h2 class="h-10 ml-5 text-xl font-bold text-white">Home</h2>
       <TweetBar />
-      <PostsContainer />
+      <PostsContainer :searchQuery="searchQuery" />
     </main>
     <div>
-      <SearchField />
+      <SearchField @search="handleSearch" />
       <TrendingBar />
     </div>
   </div>
@@ -40,6 +40,16 @@ export default {
     SearchField,
     TweetBar,
     PostsContainer,
+  },
+  data() {
+    return {
+      searchQuery: "",
+    };
+  },
+  methods: {
+    handleSearch(query) {
+      this.searchQuery = query;
+    },
   },
 };
 </script>

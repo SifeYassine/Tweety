@@ -6,6 +6,8 @@
     "cssbuild": "tailwindcss -i ./src/input.css -o ./src/style.css --watch",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "jsonserver": "json-server --watch db.json",
+    "start": "concurrently \"npm run serve\" \"npm run cssbuild\" \"npm run jsonserver\"",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

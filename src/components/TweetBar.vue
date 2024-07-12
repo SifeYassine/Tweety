@@ -60,7 +60,7 @@ export default {
           posts.length > 0 ? parseInt(posts[posts.length - 1].id) : 0;
         const newId = lastId + 1;
 
-        const postData = {
+        const newPost = {
           id: newId.toString(),
           content: postContent.value,
           liked: false,
@@ -70,7 +70,7 @@ export default {
           user_id: "1",
         };
 
-        await axios.post("http://localhost:3000/Posts", postData);
+        await axios.post("http://localhost:3000/Posts", newPost);
 
         postContent.value = "";
       } catch (error) {
