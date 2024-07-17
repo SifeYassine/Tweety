@@ -1,4 +1,4 @@
-# Tweetty
+# Tweety
 
 ## Project setup
 
@@ -6,24 +6,16 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compiles and Serve the App
 
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Watch the JSON Server
 
 ```
-npm run build
+json-server --watch db.json
 ```
 
-### Lints and fixes files
 
-```
-npm run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
