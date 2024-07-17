@@ -121,7 +121,7 @@ export default {
 
         await axios.put(`http://localhost:3000/Posts/${post.id}`, updatedPost);
 
-        const index = posts.value.findIndex((post) => post.id === post.id);
+        const index = posts.value.findIndex((p) => p.id === post.id);
         if (index !== -1) {
           posts.value[index] = { ...updatedPost, user: post.user };
         }
